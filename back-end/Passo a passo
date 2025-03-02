@@ -1,0 +1,26 @@
+Apos separar Back-end de front-end
+cd Back-end
+npm init -y
+criar dir 'api'
+criar arquivo server.js
+
+incluir no package.json
+"type": "module",
+
+node --watch ./api/server.js // utiliza o node.js para executar jaca script o --watch, força ele a verificar se houve alteração e reiniciar a api se houve
+
+criar o app usando o Express()
+definir a porta a ser usada PORT
+criar as app.get para as 3 pastas "/", "/artist" e "/songs"
+usar o listem para que o servidor verifique a porta
+no Browser, google chrome etc, digite localhost:3001, onde 3001 é a porta q vc escolher para ele monitorar para ver o resultado
+
+criar a conexão connect.js
+criar um arquivo para inserir muitos dados insertMany.js
+
+pegou o array existente e criamos uma copia dem os id
+usar a função insertMany para inserilos no MongoDb e ler o Response
+
+Para unir Back-end e Front-end vamos:
+criar o arquivo api.js e usar o Axios para fazer as requisições
+Instalar o Axios

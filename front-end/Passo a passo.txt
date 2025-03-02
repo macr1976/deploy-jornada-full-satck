@@ -1,0 +1,214 @@
+Setup Inicial
+  Baixar arquivos da aula
+  duplicar pasta 'Arquivos Iniciais da Aula 1' para FullStackAula1
+  Baixar VSCode
+  Baixar Node.js
+  Abrir Terminal no VSCode
+  ir para a pasta que vc criou usando CD./FullStackAula1
+  usar o NPM (Node Packed Manager)
+  digitar e executar 
+  
+  usar o vite para criar os arquivos html index.css configs etc
+    NPM create vite@latest . // o . é para ele criar no diretorio atual
+    Yes
+    //FrameWork usar 
+    React
+    //Tecnmologia usar 
+    JavaScript
+    //instalar o que ele pedir 
+    npm instal
+    npm run dev
+    //ele cria uma pagina modelo vite+react que iremos deletar esses links e comecar do zero
+    //instala o pacote para gerenciar diretórios e paginas do react
+    npm i react-router-dom 
+  
+  podemos usar CTRL+K+O e selecionar sua pasta de trabalho para ocular as outrs e deixar o menu limpo
+  dentro da pasta podemos:
+    a pasta public pode ser excluida
+    a pasta assets pode ser excluida
+    arquivo readme pode ser deletado
+    app.css pode ser deletado
+    
+    em app.jsx:
+      deletar os imports
+      deletar o const
+      deletar tudo que houver entre <> e </>
+      salvar
+    
+    em index.css
+      deletar todas as linha dele
+      salvar
+  
+  no terminal, rodar o npm run dev e
+  abrir o link do arquivo gerado por ele ex: http://localhost:5173/
+  vai abrir o html vazio do projeto
+
+
+A criação do projeto final inicia aos 26:00
+Agora começamos a escrever o codigo seguindo a logica dos arquivos
+  o projetos tem 3 arquivos principais tipicos do html que ficarão na raiz 
+    index.html
+    main.jsx
+    index.css
+  e carregarão os arquivos de componentes do react
+  Todos os outros são Componentes que ficarão dentro de uma pasta Components
+  Nesse projeto o index.html chama o main.jsx que chama App.jsx que chama o Header.jpx e o Main. jpx que tem todo o resto "dentro"
+  
+  a hierarquia seria:
+  index.html
+    main.jsx
+      App.jsx
+        Header.jsx
+        Main.jsx
+          Artistas.jsx
+            Artista.jsx
+          Musicas.jsx
+            Musica.jsx
+
+  index.html
+  onde tudo se inicia 
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href="/src/assets/logo/spotify-logo.png"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Proj Spotify</title>
+      </head>
+      <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.jsx"></script>
+      </body>
+    </html>
+    
+  em <head> temos o titulo e icone que aparecem na aba do navegador
+
+  em <body>
+  por ser React, usaremos um main.jsx em vez de main.html como pagina principal
+
+  main.jsx  
+  "
+    import { StrictMode } from "react";
+    import { createRoot } from "react-dom/client";
+    import ".index.css";
+    import App from "./components/App.jsx";
+
+    // esse main.jsx carrega o nosso App.jsx que vai ter todo os componentes dentro
+    
+    createRoot(document.getElementById('root')).render(
+    <StrictMode> // modo de depuração executa 2 vezes o comando para garantir q funcionou
+      <App />
+    </StrictMode>
+  "
+
+  // ele renderiza o app.jsx dentro do root do main.html
+  
+  App.jsx  //será nossa pagina e terá 2 componentes principais Header.jsx e Main.jsx: 
+    import React from "react";
+    import Main from "./components/Main";
+    import Header from "./components/Header";
+    const App = () => {
+      return (
+        <>
+          <Header />
+          <Main />
+        </>
+      );
+    };
+
+    export default App;
+
+      
+      o Header.jsx, linha superior com o logo e o nome Spotify    
+      e o Main.jsx, toda a parte de baixo que modifica dependendo de "onde" vc esta. engloba varios outros Componentes
+  
+  Header.jsx
+    "
+      import React from "react";
+      import logoSpotify from "../assets/logo/spotify-logo.png";
+
+      const Header = () => {
+        return (
+          <div className="header">
+            <img src={logoSpotify} alt="Logo Spotify" /> //precisa importar a imagem
+
+            <a className="header__link" href="/">
+              <h1>Spotify</h1>
+            </a>
+          </div>
+        );
+      };
+
+      export default Header;
+    "
+
+
+
+
+  em index.html <head> trocar o icone do vite pelo do projeto e ajustar o título
+  para isso copiar a pasta assets dos arquivos originais para dentro da pasta src do projeto
+  
+
+  Ele carrega o css final em vez de fazer tudo
+  isso tras uma complicação pois daqui pora frente o css esta pronto e  nao vai ser assim no mudo real
+
+
+Ele usa o site FontAwesome e clica em DOC e 'View the Doc' para obter os icones de play, pause etc
+No menu lateral
+Integration>React>Set up with React
+  Em 1. Add SVG Core ele copia o comando do npm e executa ele no terminal
+    npm i --save @fortawesome/fontawesome-svg-core
+
+  Em 2. Add Icon Packages
+  seleciona 'Free SVG Icon Package'
+  copia os npm e roda no terminal
+    npm i --save @fortawesome/free-solid-svg-icons
+    npm i --save @fortawesome/free-regular-svg-icons
+    npm i --save @fortawesome/free-brands-svg-icons
+
+  em 3. Add the React Component
+  copia o comando npm e roda no terminal
+    npm i --save @fortawesome/react-fontawesome@latest
+
+  Volta para a pagina inicial vai em Icons e 'Free + Open Source'
+  filtra por play
+  seleciona o Circle Play
+  no Circle-Play seleciona a opção React
+  e copia o codigo de lá para colar antes do 'nome do artista' no Main.jsx
+    <FontAwesomeIcon icon="fa-solid fa-circle-play" />
+  importe o fonteAwesome
+    import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+    
+      <div className="song__container">
+        <div className="song__image-container">
+          <img
+            src="https://i.scdn.co/image/ab67616d00001e022774b00531d558bc19e12a24"
+            alt="Imagem da Musica X"
+          />
+        </div>
+      </div>
+
+      <div class name="song___bar">
+        <div className="song__artist-image">
+          <img
+            width={75}
+            height={75}
+            src="https://i.scdn.co/image/ab67616100005174fde13b4ff04ee1c0f33c6878"
+            alt="Imagem do Artista X"
+          />
+        </div>
+
+        <Player />
+
+        <div>
+          <p className="song__name">Nome da Musica</p>
+          <p>Nome do Artista</p>
+        </div>
+      </div>
+
+// A inteligencia das paginas começa aos 39:00 do video 3
