@@ -1,0 +1,22 @@
+na pagina do Git hub
+crie um novo repositorio
+opte pela opção "push an existente repository" se o projeto foi feio localmente via VS Code
+no VS Code instale o Git Hub se não estiver instalado
+verifique se as pastas prinicpais tem o arquivo .gitignnore para determinar q pastas desnecessarias não sejam enviadas para o git hub
+inicie o Git Hub com o comando:
+git init
+para enviar os arquivos use o comando
+use git add .
+para confirmar as alterações faça o commit com o motivo ex. projeto concluido, ou alteração do playe, ou inclusao do novo componente X
+git commit -m "motivo do commit"
+se der erro de email privado va em config de email e copie o email de edição 'noreply'. algo como 123456789+alguem@users.noreply.github.com
+https://github.com/settings/emails
+execute o comando para atualizar o email e usuario
+git config --global user.email "123456789+alguem@users.noreply.github.com"
+git config --global user.name "Seu nome ou usuario"
+Se você já fez commits com seu endereço de e-mail privado, você pode atualizar o autor do último commit com o comando:
+git commit --amend --reset-author --no-edit
+refaça o push
+git push
+atualise a pagina do git hub, F5
+Agora as pastas deve estar no repositorio do git hub
