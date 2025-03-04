@@ -16,6 +16,7 @@ const formatTime = (timeInSeconds) => {
   const seconds = Math.floor(timeInSeconds - minutes * 60)
     .toString()
     .padStart(2, "0");
+
   return `${minutes}:${seconds}`;
 };
 
@@ -23,6 +24,7 @@ const timeInSeconds = (timeString) => {
   const splitArray = timeString.split(":");
   const minutes = Number(splitArray[0]);
   const seconds = Number(splitArray[1]);
+
   return minutes * 60 + seconds;
 };
 
@@ -82,11 +84,14 @@ const Player = ({
       </div>
       <div className="player__progress">
         <p>{currentTime}</p>
+
         <div className="player__bar ">
           <div ref={progressBar} className="player__bar-progress"></div>
         </div>
+
         <p>{duration}</p>
       </div>
+
       <audio ref={audioPlayer} src={audio}></audio>
     </div>
   );

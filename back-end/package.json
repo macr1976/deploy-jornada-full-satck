@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node ./api/server.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",

@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/macr1976/deploy-jornada-full-satck.git"
+    "url": "git+https://github.com/macr1976/deploy-jornada-full-stack.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/macr1976/deploy-jornada-full-satck/issues"
+    "url": "https://github.com/macr1976/deploy-jornada-full-stack/issues"
   },
-  "homepage": "https://github.com/macr1976/deploy-jornada-full-satck#readme",
+  "homepage": "https://github.com/macr1976/deploy-jornada-full-stack#readme",
   "description": ""
 }
